@@ -51,7 +51,7 @@ gem 'bootstrap', '~> 5.1.3'
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  # Use mysql as the database for Active Record
+# Use mysql as the database for Active Record
   gem "mysql2", "~> 0.5"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -69,7 +69,7 @@ group :development do
 end
 
 group :production do
-  gem "mysql2", "~> 0.5"
+  gem 'pg'
 end
 
 group :test do
