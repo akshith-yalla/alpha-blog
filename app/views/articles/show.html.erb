@@ -5,7 +5,7 @@
         <div class="card text-center shadow mb-5 bg-white rounded">
           <div class="card-header fst-italic">
             by <%= @article.user.username if @article.user %>
-            <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
+            <%= link_to gravatar_for(@article.user) %>
             <% if @article.categories.any? %>
             <div class="mt-2">
               <%= render @article.categories %>
@@ -14,7 +14,7 @@
           </div>
           <div class="card-body">
             <div class="card-text text-left"><%= simple_format(@article.description) %></div>
-            <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
+            <% if user_signed_in? && (@article.user == current_user || current_user.admin?) %>
               <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info" %>
               <%= link_to "Delete", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger" %>
             <% end %>
